@@ -10,11 +10,13 @@ namespace BusStop.Business.Helpers
         {
             this.Result = result;
             this.ResultCode = resultCode;
+            this.ResultMessage = resultMessage;
             this.IsSuccessful = isSuccessful;
         }
 
-        public T Result { get; set; }
+        public T Result { get; private set; }
         public TResultCode ResultCode { get; private set; }
+        public string ResultMessage { get; private set; }
         public bool IsSuccessful { get; private set; }
     }
 }

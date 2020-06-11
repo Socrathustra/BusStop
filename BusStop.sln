@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop", "BusStop\BusStop.csproj", "{BECA7AFC-0E81-47B8-8B15-D0B8A17218D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusStop", "BusStop\BusStop.csproj", "{BECA7AFC-0E81-47B8-8B15-D0B8A17218D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.Business", "BusStop.Business\BusStop.Business.csproj", "{D505D2C0-6869-4A89-B97B-B6A529B1BB89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusStop.Business", "BusStop.Business\BusStop.Business.csproj", "{D505D2C0-6869-4A89-B97B-B6A529B1BB89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.Core", "BusStop.Core\BusStop.Core.csproj", "{7864C52F-6FB5-475C-A4A4-F712309F7EEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusStop.Core", "BusStop.Core\BusStop.Core.csproj", "{7864C52F-6FB5-475C-A4A4-F712309F7EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.Business.Test", "BusStop.Business.Test\BusStop.Business.Test.csproj", "{70F6CE87-89D7-4622-B64B-5CDF7FF648EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusStop.Business.Test", "BusStop.Business.Test\BusStop.Business.Test.csproj", "{70F6CE87-89D7-4622-B64B-5CDF7FF648EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.Test", "BusStop.Test\BusStop.Test.csproj", "{D004F546-5B50-4EB7-AABE-35FDD0CE9298}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{70F6CE87-89D7-4622-B64B-5CDF7FF648EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70F6CE87-89D7-4622-B64B-5CDF7FF648EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70F6CE87-89D7-4622-B64B-5CDF7FF648EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D004F546-5B50-4EB7-AABE-35FDD0CE9298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D004F546-5B50-4EB7-AABE-35FDD0CE9298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D004F546-5B50-4EB7-AABE-35FDD0CE9298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D004F546-5B50-4EB7-AABE-35FDD0CE9298}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
