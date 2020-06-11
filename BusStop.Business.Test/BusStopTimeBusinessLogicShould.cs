@@ -26,15 +26,10 @@ namespace BusStop.Business.Test
             // act
             var actual = sut.GetNextStopTimes(busStopId, numberOfTimes);
             // assert
-            foreach (var route in actual.Result)
+            foreach (var route in actual.Result.Routes)
             {
                 // should only have a single bus stop
-                Assert.Equal(1, route.BusStops.Count);
-                foreach (var stop in route.BusStops)
-                {
-                    // Should return as many arrival times as requested
-                    Assert.Equal(numberOfTimes, stop.ArrivalTimes.Count);
-                }
+                Assert.Equal(numberOfTimes, route.ArrivalTimes.Count);
             }
         }
 

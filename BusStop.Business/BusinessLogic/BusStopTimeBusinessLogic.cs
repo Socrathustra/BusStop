@@ -27,7 +27,7 @@ namespace BusStop.Business.BusinessLogic
             this.RouteStopDataService = routeStopDataService;
         }
 
-        public IBusinessResult<IList<RouteDto>, BusStopTimeResultCode> GetNextStopTimes(int busStopId, int numberOfTimes)
+        public IBusinessResult<BusStopDto, BusStopTimeResultCode> GetNextStopTimes(int busStopId, int numberOfTimes)
         {
             try
             {
@@ -35,27 +35,24 @@ namespace BusStop.Business.BusinessLogic
 
                 if (routeStops == null || routeStops.Count == 0)
                 {
-                    return this.GetErrorResult<IList<RouteDto>>(BusStopTimeResultCode.InvalidStop);
+                    return this.GetErrorResult<BusStopDto>(BusStopTimeResultCode.InvalidStop);
                 }
 
-                var dtos = routeStops.Select(x => new RouteDto
+                var dto = new BusStopDto
                 {
-                    Name = x.Route.Name,
-                    BusStops = new List<BusStopDto>
+                    Name = routeStops.First().BusStop.Name,
+                    Routes = routeStops.Select(x => new RouteDto
                     {
-                        new BusStopDto
-                        {
-                            ArrivalTimes = x.ArrivalTimes,
-                            Name = x.BusStop.Name
-                        }
-                    }
-                }).ToList();
+                        Name = x.Route.Name,
+                        ArrivalTimes = x.ArrivalTimes
+                    }).ToList()
+                };
 
-                return this.GetBusinessResult<IList<RouteDto>>(dtos, BusStopTimeResultCode.Okay);
+                return this.GetBusinessResult<BusStopDto>(dto, BusStopTimeResultCode.Okay);
             }
             catch (Exception)
             {
-                return this.GetErrorResult<IList<RouteDto>>(BusStopTimeResultCode.UnknownError);
+                return this.GetErrorResult<BusStopDto>(BusStopTimeResultCode.UnknownError);
             }
         }
     }

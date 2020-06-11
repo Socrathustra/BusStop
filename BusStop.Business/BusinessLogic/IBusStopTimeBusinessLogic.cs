@@ -6,6 +6,6 @@ namespace BusStop.Business.BusinessLogic
 {
     public interface IBusStopTimeBusinessLogic
     {
-        IBusinessResult<IList<RouteDto>, BusStopTimeResultCode> GetNextStopTimes(int busStopId, int numberOfTimes);
+        IBusinessResult<BusStopDto, BusStopTimeResultCode> GetNextStopTimes(int busStopId, int numberOfTimes);
     }
 }
