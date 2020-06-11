@@ -68,7 +68,7 @@ namespace BusStop.Business.Services
             }
         }
 
-
+        // in production code, the following two methods would likely go into a scheduler which adds arrival times to the database
         private DateTime FindNearestMultipleOfFifteen()
         {
             var now = this.DateTimeNow.Now;
@@ -83,8 +83,11 @@ namespace BusStop.Business.Services
 
         private DateTime FindNearestTimeWithOffset(DateTime basis, int offsetInMinutes)
         {
+            var basisWithOffset = basis.AddMinutes(offsetInMinutes);
+            // this helps account for hour wraparound
+            var isHourLess = this.DateTimeNow.Now.Hour < basisWithOffset.Hour;
             // if true, this means the next stop actually occurs prior to the basis
-            if (this.DateTimeNow.Now.Minute < (basis.Minute - 15) + offsetInMinutes)
+            if (this.DateTimeNow.Now.Minute - (isHourLess ? 60 : 0) < (basis.Minute - 15) + offsetInMinutes)
             {
                 return basis.AddMinutes(offsetInMinutes - 15);
             }
