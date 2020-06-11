@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BusStop.Business.Helpers;
 using BusStop.Core;
 
 namespace BusStop.Business.Services
 {
     public class HardCodedRouteStopDataService : IRouteStopDataService
     {
+        private IDateTimeNow DateTimeNow { get; set; }
+
+        public HardCodedRouteStopDataService(IDateTimeNow dateTimeNow)
+        {
+            this.DateTimeNow = dateTimeNow;
+        }
+
         public IList<RouteStop> GetByBusStop(int busStopId, int numberOfTimes)
         {
             if (busStopId > 0 && busStopId <= 10)
@@ -63,7 +71,7 @@ namespace BusStop.Business.Services
 
         private DateTime FindNearestMultipleOfFifteen()
         {
-            var now = DateTime.Now;
+            var now = this.DateTimeNow.Now;
             var minutes = now.Minute;
             var minutesToNextMultiple = 15 - (minutes % 15);
             var next = now.AddMinutes(minutesToNextMultiple);
