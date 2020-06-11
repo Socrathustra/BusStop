@@ -84,7 +84,7 @@ namespace BusStop.Business.Services
         private DateTime FindNearestTimeWithOffset(DateTime basis, int offsetInMinutes)
         {
             // if true, this means the next stop actually occurs prior to the basis
-            if ((basis.Minute + offsetInMinutes) % 15 != offsetInMinutes)
+            if (this.DateTimeNow.Now.Minute < (basis.Minute - 15) + offsetInMinutes)
             {
                 return basis.AddMinutes(offsetInMinutes - 15);
             }
