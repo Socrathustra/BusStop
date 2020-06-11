@@ -18,7 +18,7 @@ namespace BusStop.Business.Test
             // arrange
             var services = FakeStartup.GetDefaultServices();
             var nowSubstitute = Substitute.For<IDateTimeNow>();
-            nowSubstitute.Now.Returns(x => new DateTime(2020, 6, 10, 8, 12, 0));
+            nowSubstitute.Now.Returns(x => new DateTime(2020, 6, 10, 8, 46, 0));
             services.AddScoped<IDateTimeNow>(x => nowSubstitute);
             var sut = this.GetSut(services);
             // act
@@ -27,26 +27,26 @@ namespace BusStop.Business.Test
             var actual = sut.GetByBusStop(busStopId, numberOfArrivalTimes);
             // assert
             Assert.Equal(3, actual.Count);
-            // make sure the calculations are correct
-            foreach (var route in actual)
+            // make sure the calculations are correct by testing them against hand-calculated values
+            foreach (var routeStop in actual)
             {
-                var arrivalTimes = route.ArrivalTimes;
+                var arrivalTimes = routeStop.ArrivalTimes;
                 Assert.Equal(numberOfArrivalTimes, arrivalTimes.Count);
                 var first = arrivalTimes[0];
                 var second = arrivalTimes[1];
-                switch (route.RouteId)
+                switch (routeStop.RouteId)
                 {
                     case 1:
-                        Assert.True(first.Day == 10 && first.Month == 6 && first.Year == 2020 && first.Minute == 14);
-                        Assert.True(second.Day == 10 && second.Month == 6 && second.Year == 2020 && second.Minute == 29);
+                        Assert.True(first.Day == 10 && first.Month == 6 && first.Year == 2020 && first.Hour == 8 && first.Minute == 59);
+                        Assert.True(second.Day == 10 && second.Month == 6 && second.Year == 2020 && second.Hour == 9 && second.Minute == 14);
                         break;
                     case 2:
-                        Assert.True(first.Day == 10 && first.Month == 6 && first.Year == 2020 && first.Minute == 16);
-                        Assert.True(second.Day == 10 && second.Month == 6 && second.Year == 2020 && second.Minute == 31);
+                        Assert.True(first.Day == 10 && first.Month == 6 && first.Year == 2020 && first.Hour == 9 && first.Minute == 1);
+                        Assert.True(second.Day == 10 && second.Month == 6 && second.Year == 2020 && second.Hour == 9 && second.Minute == 16);
                         break;
                     case 3:
-                        Assert.True(first.Day == 10 && first.Month == 6 && first.Year == 2020 && first.Minute == 18);
-                        Assert.True(second.Day == 10 && second.Month == 6 && second.Year == 2020 && second.Minute == 33);
+                        Assert.True(first.Day == 10 && first.Month == 6 && first.Year == 2020 && first.Hour == 8 && first.Minute == 48);
+                        Assert.True(second.Day == 10 && second.Month == 6 && second.Year == 2020 && second.Hour == 9 && second.Minute == 3);
                         break;
                 }
             }

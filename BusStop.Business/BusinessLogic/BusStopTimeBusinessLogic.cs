@@ -40,6 +40,7 @@ namespace BusStop.Business.BusinessLogic
 
                 var dto = new BusStopDto
                 {
+                    Id = routeStops.First().BusStopId,
                     Name = routeStops.First().BusStop.Name,
                     Routes = routeStops.Select(x => new RouteDto
                     {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 export class BusStopDto {
+  id: number;
   name: string;
   routes: RouteDto[];
 }
@@ -13,10 +14,11 @@ export class RouteDto {
 @Component({
   selector: 'app-bus-stop',
   templateUrl: './bus-stop.component.html',
-  styleUrls: ['./bus-stop.component.css']
+  styleUrls: ['./bus-stop.component.css'],
 })
 export class BusStopComponent implements OnInit {
-  @Input() busStop: BusStopDto = {
+  @Input() public busStop: BusStopDto = {
+    id: 0,
     name: '',
     routes: []
   };
@@ -25,5 +27,4 @@ export class BusStopComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
