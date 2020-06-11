@@ -14,14 +14,17 @@ export class RouteDto {
 @Component({
   selector: 'app-bus-stop',
   templateUrl: './bus-stop.component.html',
-  styleUrls: ['./bus-stop.component.css']
+  styleUrls: ['./bus-stop.component.css'],
 })
 export class BusStopComponent implements OnInit {
-  @Input() busStop: BusStopDto;
+  @Input() public busStop: BusStopDto = {
+    id: 0,
+    name: '',
+    routes: []
+  };
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

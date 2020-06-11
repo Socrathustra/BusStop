@@ -8,7 +8,8 @@ import { Observable, throwError } from 'rxjs';
 @Component({
   selector: 'app-bus-stop-list',
   templateUrl: './bus-stop-list.component.html',
-  styleUrls: ['./bus-stop-list.component.css']
+  styleUrls: ['./bus-stop-list.component.css'],
+  providers: [BusStopService]
 })
 export class BusStopListComponent implements OnInit {
   busStops: BusStopDto[] = [];
