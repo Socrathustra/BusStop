@@ -12,7 +12,7 @@ import { Observable, throwError } from 'rxjs';
 })
 export class BusStopListComponent implements OnInit {
   busStops: BusStopDto[] = [];
-  private busStopIdsForDemo: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+  private busStopIdsForDemo: number[] = [ 1, 2 ]
 
   constructor(private busStopService: BusStopService) { }
 
@@ -37,6 +37,7 @@ export class BusStopListComponent implements OnInit {
       });
     let now = new Date();
     let secondsToNextMinute = 60 - now.getSeconds();
+    // using long polling, because we can calculate exactly when the next update will occur; no need for a websocket
     setTimeout(() => this.getArrivalsOnLoop(busStopId), secondsToNextMinute * 1000);
   }
 
