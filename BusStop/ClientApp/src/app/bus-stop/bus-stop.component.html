@@ -1,0 +1,14 @@
+<div class="card bus-stop-card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-5 bus-stop-component">
+        <h3><i class="fas fa-bus-alt bus-icon"></i> {{busStop.name}}</h3>
+      </div>
+      <div class="col-md-7">
+        <div *ngFor="let route of busStop.routes" class="bus-stop-route-info">
+          {{route.name}} arriving: <span class="bus-stop-route-time" *ngFor="let time of route.arrivalTimes; let isLast = last">{{time | date:'shortTime'}}{{isLast ? '' : ', '}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

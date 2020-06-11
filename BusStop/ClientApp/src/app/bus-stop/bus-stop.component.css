@@ -1,0 +1,21 @@
+.bus-icon {
+    color: dodgerblue;
+}
+
+.bus-stop-component {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.bus-stop-route-info {
+    text-align: right;
+}
+
+.bus-stop-route-time {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+.bus-stop-card {
+    background-color: gold
+}
