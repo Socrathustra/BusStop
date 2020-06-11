@@ -1,0 +1,28 @@
+.bus-stop-list {
+  border-width: 3px;
+  border-color: goldenrod;
+  background-color: goldenrod;
+}
+
+.bus-stop-list-header {
+    background-color: goldenrod;
+    color: aliceblue;
+    font-variant-caps: small-caps;
+    border-bottom:none;
+}
+
+.bus-stop-list-body {
+    padding: 0;
+}
+
+.bus-stop-list-footer {
+    background-color: goldenrod;
+    color: aliceblue;
+    text-align:right;
+    padding: 3px;
+}
+
+.bus-stop-list-add-new {
+    background-color: dodgerblue;
+    font-weight: bold;
+}

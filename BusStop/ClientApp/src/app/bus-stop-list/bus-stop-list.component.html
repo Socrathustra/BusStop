@@ -1,0 +1,13 @@
+<div class="card bus-stop-list">
+  <div class="card-header bus-stop-list-header">
+    <h2>My Bus Stops</h2>
+  </div>
+  <div class="card-body bus-stop-list-body">
+    <div class="row" *ngFor="let busStop of busStops">
+      <div class="col-md-12"><app-bus-stop [busStop]="busStop"></app-bus-stop></div>
+    </div>
+  </div>
+  <div class="card-footer bus-stop-list-footer">
+    <button type="button" class="btn btn-primary bus-stop-list-add-new"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>
+  </div>
+</div>
