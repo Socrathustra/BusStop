@@ -15,7 +15,7 @@ A good deal of the code has been intentionally over-engineered compared to the t
 ### Back-End Observations
 * The back-end code has been written so that one would only need to swap out the data layer to turn this into a real application. One could swap out the concrete class provided in Startup for the IRouteStopDataService, and the rest of the application would continue to work.
 * The above also applies to back-end unit testing. By making a method that exposes only the business classes injected during Startup, a FakeStartup class allows tests to utilize dependency injection instead of creating the systems under test manually.
-* This ensures that even the unit tests will continue to function without significant alteration, and it allows developers to add additional dependencies to existing as needed without needing to update potentially dozens of tests.
+* This ensures that even the unit tests will continue to function without significant alteration, and it allows developers to add additional dependencies to existing classes as needed without needing to update potentially dozens of tests.
 * The FakeStartup class allows for rapid production of additional unit tests since much of the work setting up the sut is done for the developer.
 
 ### Front-End Observations
